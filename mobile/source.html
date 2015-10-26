@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+    <meta name="author" content="Sergey Pimenov and Metro UI CSS contributors">
+
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+
+    <title>COC</title>
+
+    <link href="metro-ui/build/css/metro.css" rel="stylesheet">
+    <link href="metro-ui/build/css/metro-icons.css" rel="stylesheet">
+    <link href="metro-ui/build/css/metro-responsive.css" rel="stylesheet">
+    <link href="front/css/custom.css" rel="stylesheet">
+
+    <script src="metro-ui/build/js/jquery-2.1.3.min.js"></script>
+    <script src="metro-ui/build/js/jquery.dataTables.min.js"></script>
+
+    <script src="metro-ui/build/js/metro.js"></script>
+
+    <script>
+
+        function pushMessage(t){
+            var mes = 'Info|Implement independently';
+            $.Notify({
+                caption: mes.split("|")[0],
+                content: mes.split("|")[1],
+                type: t
+            });
+        }
+
+        $(function(){
+            $('.sidebar').on('click', 'li', function(){
+                if (!$(this).hasClass('active')) {
+                    $('.sidebar li').removeClass('active');
+                    $(this).addClass('active');
+                }
+            });
+        });
+
+
+        alert(localStorage.ridwan); 
+    </script>
+</head>
+<body class="bg-steel">
+    <div class="app-bar fixed-top darcula" data-role="appbar">
+        <a class="app-bar-element branding">RICOM</a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+            <li>
+                <a href="" class="dropdown-toggle">Base</a>
+                <ul class="d-menu" data-role="dropdown">
+                     <li><a href="">Home Village</a></li>
+                    <li><a href="">War Base</a></li>
+                    <li class="divider"></li>
+                    <li><a href=""> Create New Base</a></li>
+                </ul>
+            </li>
+            <li><a href="">MY Clan</a></li>
+            <li>
+                <a href="" class="dropdown-toggle">Help</a>
+                <ul class="d-menu" data-role="dropdown">
+                    <li><a href="">About</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="app-bar-element place-right">
+            <span class="dropdown-toggle"><span class="mif-cog"></span></span>
+            <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark" data-role="dropdown" data-no-close="true" style="width: 220px">
+                <h2 class="text-light">Quick settings</h2>
+                <ul class="unstyled-list fg-dark">
+                    <li><a href="" class="fg-white1 fg-hover-yellow">Profile</a></li>
+                    <li><a href="" class="fg-white2 fg-hover-yellow">Security</a></li>
+                    <li><a href="" class="fg-white3 fg-hover-yellow">Exit</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                
+
+                <div class="cell auto-size padding20 bg-white" id="cell-content">
+                    <h1 class="text-light">New Base<span class="mif-map place-right"></span></h1>
+                    <hr class="thin bg-grayLighter">
+
+                    <div style="width:100%"></div>
+
+
+                     <div class="tile-large ol-transparent" data-role="tile">
+                        <div class="tile-content">
+                            <div class="carousel" data-role="carousel" data-height="100%" data-width="100%" data-controls="false">
+                                <div class="slide">
+                                    <img src="base-image/skull-base.jpg" data-role="fitImage" data-format="fill">
+                                </div>
+                                <div class="slide">
+                                    <img src="base-image/kitty-base.jpg"  data-role="fitImage" data-format="fill">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#favourite-base">
+                    <div class="tile bg-yellow fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-star-full"></span>
+                            <span class='tile-label padding10'>Favourite Base</span>
+                        </div>
+                    </div>
+                    </a>
+                    <a href="#watch attack">
+                    <div class="tile bg-orange fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon  mif-video-camera"></span>
+                            <span class='tile-label padding10'>Wach Attack</span>
+                        </div>
+                    </div>
+                    </a>
+                    <a href="#create-base">
+                    <div class="tile bg-teal fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-pencil"></span>
+                            <span class='tile-label padding10'>Create Base</span>
+                        </div>
+                    </div>
+                    </a>
+                    <a href="#login">
+                    <div class="tile bg-lightOrange fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-lock"></span>
+                            <span class='tile-label padding10'>Login</span>
+                        </div>
+                    </div>
+                    </a>
+                    <a href="#message">
+                    <div class="tile bg-blue fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-envelop"></span>
+                            <span class='tile-label padding10'>Message</span>
+                        </div>
+                    </div>
+                    </a>
+                    <a href="#about">
+                    <div class="tile bg-green fg-white" data-role="tile">
+                        <div class="tile-content iconic">
+                            <span class="icon mif-info"></span>
+                            <span class='tile-label padding10'>About</span>
+                        </div>
+                    </div>
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+html, body {
+    height: 100%;
+    background: #fff !important;
+}
+
+.row {
+    background: #fff !important;
+}
+body {
+}
+.page-content {
+    padding-top: 3.125rem;
+    min-height: 100%;
+    height: 100%;
+}
+.table .input-control.checkbox {
+    line-height: 1;
+    min-height: 0;
+    height: auto;
+}
+
+.base-title{
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.container-base{
+    border: 1px dotted #E9C1FC;
+    margin-bottom: 10px;
+}
+
+.menu-base, .menu-base li{
+    float: left !important;
+}
+
+
+@media screen and (max-width: 800px){
+    #cell-sidebar {
+        flex-basis: 52px;
+    }
+    #cell-content {
+        flex-basis: calc(100% - 52px);
+    }
+}

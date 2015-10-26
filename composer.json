@@ -1,0 +1,14 @@
+
+{
+    "name": "coc/coc-app",
+    "autoload": {
+        "psr-0": {
+            "Coc\\": "src"
+        }
+    },
+    "require" : {
+		"nesbot/carbon": "1.11.0",
+        "mandrill/mandrill": "1.0.*",
+        "imagine/imagine" : "0.6.*"
+	}
+}
