@@ -1,8 +1,11 @@
-
 function showDialog(id){
-    var dialog = $(id).data('dialog');
-    dialog.open();
-}
+    var dialog = $("#"+id).data('dialog');
+    if (!dialog.element.data('opened')) {
+        dialog.open();
+    } else {
+        dialog.close();
+    }
+}   
 
 function pushMessage(t){
     var mes = 'Info|Implement independently';
