@@ -7,6 +7,21 @@ function showDialog(id){
     }
 }   
 
+function cekLogin() {
+    if (sessionUser) {
+        return true;
+    } else {
+        $.Notify({
+            caption: '',
+            content: 'Please login first',
+            type: 'warning'
+        });
+
+       showDialog('dialogLogin');
+       return false;
+   }
+}
+
 function pushMessage(t){
     var mes = 'Info|Implement independently';
     $.Notify({

@@ -124,10 +124,10 @@ $db['default'] = array(
 
 $db['server'] = array(
 	'dsn'	=> '',
-	'hostname' => 'https://coc-ridwanskt.rhcloud.com',
-	'username' => 'adminKQS2EDI',
-	'password' => 'rsAknkdac2rT',
-	'database' => 'coc',
+	'hostname' => 'mysql.idhostinger.com',
+	'username' => 'u903269747_ricom',
+	'password' => 'pasundan',
+	'database' => 'u903269747_ricom',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => TRUE,
