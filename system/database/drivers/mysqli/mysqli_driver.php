@@ -330,6 +330,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 	 */
 	protected function _escape_str($str)
 	{
+		return $str;
 		return $this->conn_id->real_escape_string($str);
 	}
 

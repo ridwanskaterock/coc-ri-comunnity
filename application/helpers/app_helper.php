@@ -1,5 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+session_start();
 //menampilkan jika data pada database tidak ada
 function no_data(){
 	return "<tr><th style='text-align:center; padding:5px' colspan='10'>Tidak ada data</th></tr>";

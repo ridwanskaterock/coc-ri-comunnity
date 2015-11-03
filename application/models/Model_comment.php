@@ -2,11 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Model_base extends MY_Model {
+class Model_comment extends MY_Model {
 
-	private $primary_key 	= "idbase";
-	private $table_name 	= "base";
-	private $field_search 	= array('base_name', 'base_desc');
+	private $primary_key 	= "idcomment";
+	private $table_name 	= "comment";
+	private $field_search 	= array('comment_text');
 
 	public function __construct()
 	{
@@ -35,13 +35,13 @@ class Model_base extends MY_Model {
         }
 
         $this->db->where($where);
-        $this->db->where("base_status != 'delete'");
+        $this->db->where("comment_status != 'delete'");
 
 		$query = $this->db->get($this->table_name);
 		return $query->num_rows();
 	}
 
-	public function get_base($q, $limit, $offset)
+	public function get_comment($q, $limit, $offset)
 	{
 		$iterasi = 1;
         $num = count($this->field_search);
@@ -58,8 +58,8 @@ class Model_base extends MY_Model {
         }
 
         $this->db->where($where);
-        $this->db->where("base_status != 'delete'");
-        $this->db->join('user', 'base.base_created_by = user.iduser', 'LEFT');
+        $this->db->where("comment_status != 'delete'");
+        $this->db->join('user', 'comment.comment_created_by = user.iduser', 'LEFT');
         $this->db->limit($limit, $offset);
         $this->db->order_by($this->primary_key, "DESC");
 		$query = $this->db->get($this->table_name);
@@ -67,10 +67,10 @@ class Model_base extends MY_Model {
 		return $query->result();
 	}
 
-	public function find_base_by_idbase($idbase)
+	public function find_comment_by_idcomment($idcomment)
 	{
-		$this->db->join('user', 'base.base_created_by = user.iduser', 'LEFT');
-		$this->db->where($this->primary_key, $idbase);
+		$this->db->join('user', 'comment.comment_created_by = user.iduser', 'LEFT');
+		$this->db->where($this->primary_key, $idcomment);
         $query = $this->db->get($this->table_name);
 
         if($query->num_rows()>0)
@@ -81,24 +81,44 @@ class Model_base extends MY_Model {
         {
             return FALSE;
         }
-
-		
 	}
 
-	public function get_all_base()
+	public function find_comment_by_idbase($idbase)
 	{
-        $this->db->where("base_status != 'delete'");
+		$this->db->join('user', 'comment.comment_created_by = user.iduser', 'LEFT');
+		$this->db->where('comment_table_reff', 'base');
+		$this->db->where('comment_table_reff_id', $idbase);
+		$this->db->order_by($this->primary_key, 'DESC');
+        $query = $this->db->get($this->table_name);
+
+        return $query->result();
+	}
+
+	public function get_all_comment()
+	{
+        $this->db->where("comment_status != 'delete'");
         $this->db->order_by($this->primary_key, "DESC");
 		$query = $this->db->get($this->table_name);
 		return $query->result();
 	}
 
-	
+    public function find_comment_user_base_by_idbase($idbase, $iduser)
+    {
+        $this->db->join('user', 'comment.comment_created_by = user.iduser', 'LEFT');
+        $this->db->where('comment_table_reff', 'base');
+        $this->db->where('comment_table_reff_id', $idbase);
+        $this->db->where('comment_created_by', $iduser);
+        $this->db->order_by($this->primary_key, 'DESC');
+        $query = $this->db->get($this->table_name);
+
+        if ($query->num_rows()) {
+            return $query->row();
+        } else {
+            return FALSE;
+        }
+    }
 
 }
 
-
-/* End of 
-
-/* End of file Model_base.php */
-/* Location: ./application/models/Model_base.php */
+/* End of file Model_comment.php */
+/* Location: ./application/models/Model_comment.php */

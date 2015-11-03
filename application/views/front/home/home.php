@@ -32,7 +32,8 @@
                     </div>
                 </div>
                 </a>
-                <a href="<?= site_url('base'); ?>">
+
+                <a href="<?= site_url('base/create'); ?>" onclick='return cekLogin()' >
                 <div class="tile bg-teal fg-white" data-role="tile">
                     <div class="tile-content iconic">
                         <span class="icon mif-pencil"></span>
@@ -40,13 +41,15 @@
                     </div>
                 </div>
                 </a>
-                <a href="<?= site_url('base'); ?>">
+                <?php if(!$this->auth->login_scurity(FALSE)): ?>
+                <a href="#" onclick="showDialog('dialogLogin')">
                 <div class="tile bg-lightOrange fg-white" data-role="tile">
                     <div class="tile-content iconic">
                         <span class="icon mif-lock"></span>
                         <span class='tile-label padding10'>Login</span>
                     </div>
                 </div>
+                <?php endif; ?>
                 </a>
                 <a href="<?= site_url('base'); ?>">
                 <div class="tile bg-blue fg-white" data-role="tile">

@@ -63,9 +63,9 @@ class Auth {
 	* @param level string or array
 	*/
 
-	public function allow($level = array())
+	public function allow($level = array(), $redirect = TRUE)
 	{
-		$this->login_scurity();
+		$this->login_scurity($redirect);
 		$session_level = userdata($this->session_level_name);
 
 		if(is_array($level))
@@ -73,7 +73,15 @@ class Auth {
 			if(!in_array($session_level, $level))
 			{
 				set_flashdata('show_login', 'ok');
-				redirect($this->redirect_url);
+				
+				if($redirect)
+				{
+					redirect($this->redirect_url);
+				}
+				else
+				{
+					return FALSE;
+				}
 			}
 		}
 		else
@@ -81,7 +89,14 @@ class Auth {
 			if($level != $session_level)
 			{
 				set_flashdata('show_login', 'ok');
-				redirect($this->redirect_url);
+				if($redirect)
+				{
+					redirect($this->redirect_url);
+				}
+				else
+				{
+					return FALSE;
+				}
 			}
 		}
 	}
@@ -92,7 +107,7 @@ class Auth {
 		return $key;
 	}
 
-	public function login_scurity()
+	public function login_scurity($redirect = TRUE)
 	{
 		if(!userdata($this->session_user))
 		{
@@ -102,7 +117,19 @@ class Auth {
 		        set_flashdata('redirect', $_SERVER['HTTP_REFERER']);
 		    }
 		    set_jnotif('Warning', 'You need to login first', 'warning');
-			redirect($this->redirect_url);
+
+			if($redirect)
+			{
+				redirect($this->redirect_url);
+			}
+			else
+			{
+				return FALSE;
+			}
+		}
+		else
+		{
+			return TRUE;
 		}
 	}
 

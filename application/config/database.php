@@ -124,11 +124,11 @@ $db['default'] = array(
 
 $db['server'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.18.10',
-	'username' => 'user_pmcm',
-	'password' => 'pmcm123',
-	'database' => 'pmcm_dev',
-	'dbdriver' => 'sqlsrv',
+	'hostname' => 'https://coc-ridwanskt.rhcloud.com',
+	'username' => 'adminKQS2EDI',
+	'password' => 'rsAknkdac2rT',
+	'database' => 'coc',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => TRUE,
 	'db_debug' => TRUE,
