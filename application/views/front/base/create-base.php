@@ -42,9 +42,10 @@
 
 	                <br>
 	                <br>
+				        <img src="" alt="" class="image-preview">
 				    <div class="input-control file full-size" data-role="input">
 					    <span class="label fg-green">Base Image</span>
-				        <input type="file" name="base_image">
+				        <input type="file" name="base_image" class="image-input">
 				        <button class="button"><span class="mif-folder"></span></button>
 				    </div>
 
@@ -58,3 +59,25 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		function readURL(input) {
+
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+
+		        reader.onload = function (e) {
+		        	console.log(e);
+		            $('.image-preview').attr('src', e.target.result);
+		        }
+
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$(".image-input").change(function(){
+		    readURL(this);
+		});
+	});
+</script>

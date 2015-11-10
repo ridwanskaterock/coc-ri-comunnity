@@ -27,6 +27,11 @@
     <script src="<?= asset('metro-ui/build/js/jquery.dataTables.min.js'); ?>"></script>
     <script src="<?= asset('metro-ui/build/js/metro.min.js'); ?>"></script>
     <script src="<?= asset('front/js/app.js'); ?>"></script>
+    <script type="text/javascript">
+    $.fn.inputEnabled = function(opsi){
+        $(this).removeAttr('disabled');
+    };
+    </script>
 
         
 </head>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="asset/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        
+    });
+    </script>
+    <style type="text/css">
+    .iframe{
+    	border: none !important;
+    	width: 100% !important;
+
+    	height: 100%;
+    }
+    body, html{
+    	height: 100%;
+    	padding: 0px;
+    	margin:0px ;
+    }
+
+    .container-load-iframe{
+        background: #76d443;
+        position: fixed;
+        margin:0px !important;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        z-index: 99999;
+    }
+
+    .loading-container{
+        color: #fff;
+        font-size: 20px;
+        position: absolute;
+        background: #76d443;
+    }
+
+    .image-cover{
+        height: 100%;
+        width: 100% !important;
+    }
+    </style>
+</head>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('iframe').load(function(){
+            $('.container-load-iframe').fadeOut('slow');
+        });
+    });
+</script>
+<body>
+    <section class="container-load-iframe">
+        <div class="loading-container">
+            <img src="asset/image/cover.jpg" class="image-cover">
+        </div>
+    </section>
+    <iframe src="http://ridwanskt.esy.es/ri-com/" class="iframe" height="100%"></iframe>
+</body>
+</html>
