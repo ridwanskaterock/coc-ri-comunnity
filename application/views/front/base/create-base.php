@@ -35,6 +35,17 @@
 				        <?php endfor; ?>
 				        </select>
 				    </div>
+					<span class="label fg-green">Base Type</span><br>
+                    <label class="input-control radio">
+                        <input type="radio" checked name="base_type" value="home_village">
+                        <span class="check"></span>
+                        <span class="caption">Home Village</span>
+                    </label>
+                    <label class="input-control radio">
+                        <input type="radio"  name="base_type" value="war_base">
+                        <span class="check"></span>
+                        <span class="caption">War Base</span>
+                    </label>
 
 					<div class="input-control textarea full-size" requi data-role="input" data-text-auto-resize="true" data-text-max-height="200" data-text-min-height="50">
 	                    <textarea value='text' placeholder='Enter desc.' name="base_desc" value="<?= set_value('base_desc'); ?>"></textarea>

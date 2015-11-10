@@ -11,7 +11,7 @@
 
                         <div class="row">
                             <div class="image-container">
-                                <div class="frame"><img src="<?= asset('base-image/'.$row->base_image); ?>"></div>
+                                <div class="frame"><img src="<?= asset('base-image/'.$row->base_image); ?>" class="base-image"></div>
                                 <div class="image-overlay">
 
                                 </div>
@@ -37,6 +37,7 @@
                         <div class="cell no-margin">
                             <span class='mif-user  '> Uploaded by <a href="<?= site_url('user/detail/'.$row->iduser); ?>"><?= ucwords($row->user_name); ?></a></span> 
                             <span class='mif-home  '> <a href="#">TH <?= $row->base_town_hall; ?></a></span> 
+                            <span class='mif-eye  '> <a href="#"> <span class="count-view"><?= $row->base_view_count; ?></span> </a> Viewers</span> 
                         </div>
                         <br>
                         <div class="rating" data-role="rating" data-size="large" data-static='true' data-stars='5' data-value='<?= $rating; ?>'></div>
@@ -91,6 +92,8 @@
                 return false;
             }
 
+            showLoading();
+
             var url = $(this).attr('action');
             var dataForm = $(this).serialize();
             var rating = $(this).find('.comment-rating').rating('value');
@@ -128,6 +131,8 @@
                     }
 
                     $(formKomentar).find('button').removeClass('loading-cube');
+
+                    hideLoading();
                 }
             });
 
@@ -136,5 +141,23 @@
 
             return false;
         });
+
+        //add view count
+        if (typeof(Storage) != 'undefined') {
+            if (typeof(localStorage.view_count_base_<?=$row->idbase; ?>) == 'undefined') {
+                $.ajax({
+                    url : "<?= site_url("base/add_view_count"); ?>",
+                    data : {'idbase' : '<?= $row->idbase; ?>'},
+                    dataType : 'JSON',
+                    success : function(response){
+                        if (response.flag) {
+                            console.log("view " + response.count);
+                            $('.count-view').html(response.count);
+                            localStorage.view_count_base_<?=$row->idbase; ?> = 1;
+                        }
+                    }
+                });
+            }
+        }
     });
 </script>

@@ -36,9 +36,8 @@
         
 </head>
 <body class="bg-white">
-    <div class="app-bar fixed-top darcula" data-role="appbar">
-        <a class="app-bar-element branding" href="<?= site_url('home'); ?>"><?= APP_NAME; ?></a>
-        <span class="app-bar-divider"></span>
+    <div class="app-bar fixed-top darcula bg-orange" data-role="appbar">
+        <a class="app-bar-element branding" href="<?= site_url('home'); ?>"><span class="mif-home mif-2x "></span></a>
         <ul class="app-bar-menu">
             <li>
                 <a href="" class="dropdown-toggle">Base</a>
@@ -47,6 +46,10 @@
                    <li><a href="<?= site_url('base/war'); ?>">War Base</a></li>
                    <li class="divider"></li>
                    <li><a href="<?= site_url('base/create'); ?>" onclick='return cekLogin()'> Create New Base</a></li>
+                   <li class="divider"></li>
+                   <?php if($this->auth->login_scurity(FALSE)): ?>
+                   <li><a href="<?= site_url('base/my_collection'); ?>" onclick='return cekLogin()'> My Collection</a></li>
+                   <?php endif; ?>
                </ul>
            </li>
            <li><a href="">MY Clan</a></li>
@@ -130,7 +133,20 @@
 
 
 <script type="text/javascript">
+
+
+    function showLoading() {
+        $('.loading-container').fadeIn();
+    }
+
+    function hideLoading() {
+        $('.loading-container').fadeOut();
+    }
+
     $(document).ready(function(){
+
+        $('.loading-container').hide();
+        
         //notif
         var notif = "<?= userdata('notif'); ?>";
 
@@ -144,6 +160,8 @@
         }
 
         $('#formLogin').submit(function() {
+            showLoading();
+
             var url = $(this).attr('action');
             var dataForm = $(this).serialize();
             var formLogin = $(this);
@@ -174,12 +192,15 @@
 
                     $(formLogin).find('button').removeClass('loading-cube');
                     console.log(res);
+                    hideLoading();
+
                     return false;
                 }
             });
 
             $(formLogin).find('textarea').inputEnabled();
             $(formLogin).find('textarea').html('');
+
 
             return false;
         });
@@ -189,6 +210,8 @@
             var url = $(this).attr('action');
             var dataForm = $(this).serialize();
             var formRegister = $(this);
+
+            showLoading();
 
             $(formRegister).find('button').addClass('loading-cube');
 
@@ -216,6 +239,8 @@
 
                     $(formRegister).find('button').removeClass('loading-cube');
                     console.log(res);
+                    hideLoading();
+                    
                     return false;
                 }
             });

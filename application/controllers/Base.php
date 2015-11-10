@@ -103,6 +103,25 @@ class Base extends front
 
 		$this->template->render('front/base/create-base', $data);
 	}
+
+	public function add_view_count()
+	{
+		$idbase = $this->input->get('idbase');
+		$base = $this->model_base->find($idbase);
+		$current_view_count = $base->base_view_count;
+		$count_after_added = (int) $current_view_count + 1;
+
+		$update_count_base = $this->model_base->change($idbase, array('base_view_count' => $count_after_added));
+
+		if($update_count_base)
+		{
+			echo json_encode(array('flag' => 1, 'count' => $count_after_added));
+		}
+		else
+		{
+			echo json_encode(array('flag' => 0, 'count' => $count_after_added));
+		}
+	}
 }
 
 /* End of file Base.php */

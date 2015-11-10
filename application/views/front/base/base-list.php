@@ -13,7 +13,7 @@
                         <h3 class="base-title"><a href="<?= site_url('base/detail/'.$row->idbase); ?>"><?= ucwords($row->base_name); ?></a></h3>
                         <div class="row">
                         <div class="image-container">
-                            <div class="frame"><img src="<?= asset('base-image/'.$row->base_image); ?>"></div>
+                            <div class="frame"><img src="<?= asset('base-image/'.$row->base_image); ?>" class="image-responsive base-image"></div>
                             <div class="image-overlay">
                                 <h2><?= ucwords($row->base_name); ?></h2>
                                 <p><?= $row->base_desc; ?></p>

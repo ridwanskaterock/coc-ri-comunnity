@@ -1,17 +1,17 @@
 <div class="page-content">
     <div class="flex-grid no-responsive-future" style="height: 100%;">
-        <div class="row" style="height: 100%">
+        <div class="row" style="height: 100%; width:100%">
             <div class="cell auto-size padding20 bg-white" id="cell-content">
-                <h1 class="text-light">New Base<span class="mif-map place-right"></span></h1>
+                <h1 class="text-light fg-orange"><b>RI</b> Comunnity<span class="mif-map place-right"></span></h1>
                 <hr class="thin bg-grayLighter">
                 <div class="tile-large ol-transparent" data-role="tile">
                     <div class="tile-content">
                         <div class="carousel" data-role="carousel" data-height="100%" data-width="100%" data-controls="false">
                             <div class="slide">
-                                <img src="<?= asset('base-image/skull-base.jpg'); ?>" data-role="fitImage" data-format="fill">
+                                <img src="<?= asset('image/cover2.png'); ?>" data-role="fitImage" data-format="fill">
                             </div>
                             <div class="slide tile-content">
-                                <img src="<?= asset('base-image/kitty-base.jpg'); ?>"  data-role="fitImage" data-format="fill">
+                                <img src="<?= asset('image/cover.png'); ?>"  data-role="fitImage" data-format="fill">
                             </div>
                         </div>
                     </div>
@@ -59,11 +59,20 @@
                     </div>
                 </div>
                 </a>
-                <a href="<?= site_url('base'); ?>">
+                <a href="<?= site_url('page/about'); ?>">
                 <div class="tile bg-green fg-white" data-role="tile">
                     <div class="tile-content iconic">
                         <span class="icon mif-info"></span>
                         <span class='tile-label padding10'>About</span>
+                    </div>
+                </div>
+                </a>
+
+                <a href="<?= site_url('base/town_hall_list'); ?>">
+                <div class="tile bg-lightOrange fg-white" data-role="tile">
+                    <div class="tile-content iconic">
+                        <span class="icon mif-home"></span>
+                        <span class='tile-label padding10'>Town Hall</span>
                     </div>
                 </div>
                 </a>

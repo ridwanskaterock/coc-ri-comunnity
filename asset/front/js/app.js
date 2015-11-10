@@ -61,6 +61,8 @@ $.fn.loader = function(opsi){
 
 
 $(function(){
+
+
     $('.sidebar').on('click', 'li', function(){
         if (!$(this).hasClass('active')) {
             $('.sidebar li').removeClass('active');

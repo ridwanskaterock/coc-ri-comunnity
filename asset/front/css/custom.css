@@ -55,3 +55,22 @@ body {
         flex-basis: calc(100% - 52px);
     }
 }
+
+.base-image{
+    height: 200px !important;
+}
+
+.loading-container{
+    background: rgba(206, 97, 58, 0.8);
+    width: 100%;
+    padding:10px;
+    position: fixed;
+    bottom: 0% !important;
+    z-index: 999999;
+}
+
+.loading-container .loading-text{
+    font-size: 20px;
+    color: #fff;
+    margin-left: 10px;
+}
