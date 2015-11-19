@@ -1,0 +1,1 @@
+ALTER TABLE `base`  ADD `base_type` VARCHAR(100) NOT NULL ;

@@ -1,0 +1,1 @@
+ALTER TABLE `base` DROP `base_type`;

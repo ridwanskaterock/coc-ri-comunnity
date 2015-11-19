@@ -53,16 +53,21 @@
 
 	                <br>
 	                <br>
-				        <img src="" alt="" class="image-preview">
-				    <div class="input-control file full-size" data-role="input">
-					    <span class="label fg-green">Base Image</span>
-				        <input type="file" name="base_image" class="image-input">
-				        <button class="button"><span class="mif-folder"></span></button>
-				    </div>
-
-
-
-	                <button class="button bg-orange fg-white"><span class='mif-share '></span> Share Now !!</button>
+			        <label>
+			        	
+						<span class="label fg-green">Base Image</span>
+						    <br>
+						    <br>
+					    <div class='box-select-image'>
+				        	<img src="<?= asset('image/plus.png'); ?>" alt="" class="image-preview">
+					    </div>
+					    <div class="input-control file full-size" data-role="input" style="display:none">
+					        <input type="file" name="base_image" class="image-input">
+					        <button class="button"><span class="mif-folder"></span></button>
+					    </div>
+			        </label>
+			        <hr>
+	                <button class="button bg-orange fg-white" style="display:block !important; width:100%; padding:20px;"><span class='mif-share '></span> Share Now !!</button>
                </form>
 
                 </div>
