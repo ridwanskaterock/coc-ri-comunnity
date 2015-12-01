@@ -1,2 +1,4 @@
 application/config/database.php
 asset/base-image/*
+vendor/*
+asset/chart/*

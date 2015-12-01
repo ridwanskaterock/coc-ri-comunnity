@@ -6,8 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Protelindo\\' => array($baseDir . '/src'),
     'Mandrill' => array($vendorDir . '/mandrill/mandrill/src'),
     'Imagine' => array($vendorDir . '/imagine/imagine/lib'),
+    'Coc\\' => array($baseDir . '/src'),
     'Carbon' => array($vendorDir . '/nesbot/carbon/src'),
 );
